@@ -1,17 +1,31 @@
+def menu():
+  print("Menu")
+  print("1.crear")
+  print("2.ver")
+  print("3.salir")
+  opcion=input("opcion:")
+  return opcion
 
-def tomar_altura():
-  altura = int(input("toma la altura del triangulo: "))
-  return altura
+def crear(opcion,triangulos):
+  if opcion=="1":
+    base = float(input("escribe la base del triangulo:"))
+    altura = float(input("escribe la altura del triangulo:"))
+    area = (base*altura)/2
+    print("el area del triangulo es:",area)
+    triangulos.append(area)
 
-def tomar_base():
-  base = int(input("toma la base del triangulo : "))
-  return base
+  elif opcion=="2":
+    for area in triangulos: 
+      print(area)
 
-def calcular_area(altura,base):
-  area = (altura*base)/2
-  return area
+def main():
+  triangulos = [] 
+  while True:
+    opcion=menu()
+    if opcion=="3":
+      print("saliendo del programa")
+      break
+    crear(opcion, triangulos) )
 
-altura = tomar_altura()
-base = tomar_base()
-area = calcular_area(altura, base)
-print(area)
+
+llmar_menu= main()
