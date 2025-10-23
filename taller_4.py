@@ -1,15 +1,29 @@
-import math
+def menu():
+  print("Menu")
+  print("1.crear")
+  print("2.ver")
+  print("3.salir")
+  opcion=input("opcion:")
+  return opcion
 
-def capturar_datos():
-    radio = float(input("Ingrese el radio: "))
-    return radio
+def crear(opcion,volumenes):
+  if opcion=="1":
+    radio=float(input("ingrese el radio:"))
+    altura=float(input("ingrese la altura:"))
+    volumen=3.1416*radio**2*altura
+    print("el volumen del cilindro es:",volumen)
+    volumenes.append(volumen)
+  elif opcion=="2":
+    for v in volumenes:
+      print(v)
 
-def calcular_area(radio):
-    return math.pi * (radio ** 2)
+def main():
+  volumenes=[]
+  while True:
+    opcion=menu()
+    if opcion=="3":
+      print("saliendo del programa")
+      break
+    crear(opcion,volumenes)
 
-def mostrar_resultado(area):
-    print("El área del círculo es:", area)
-
-radio = capturar_datos()
-area = calcular_area(radio)
-mostrar_resultado(area)
+main()
